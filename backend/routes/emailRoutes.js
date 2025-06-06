@@ -4,7 +4,7 @@ import {
   sendForgotPasswordEmail, 
   handlePasswordReset 
 } from '../controllers/emailController.js';
-import { validateContactForm, validatePasswordReset } from '../middleware/validation.js';
+import { validateContactForm, validatePasswordReset } from '../Middleware/validation.js';
 
 const router = express.Router();
 
