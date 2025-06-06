@@ -1,189 +1,82 @@
 # Smart Finance Tracker
 
-A comprehensive financial management application built with React and Node.js, featuring transaction tracking, data visualization, and user authentication.
-
-## Features
-
-- 📊 Interactive financial dashboards and charts
-- 💰 Transaction management and tracking
-- 🔐 Secure user authentication
-- 📱 Responsive design for all devices
-- 📈 Real-time data visualization
-- 🎯 Budget tracking and management
-- 📝 Category-based expense organization
-
-## Tech Stack
-
-### Frontend
-- React 19
-- React Router v7
-- Chart.js & React-ChartJS-2
-- Tailwind CSS
-- Axios
-- React Hot Toast
-- React Icons
-
-### Backend
-- Node.js
-- Express.js
-- MongoDB
-- JWT Authentication
-- RESTful API
-
-## Getting Started
-
-### Prerequisites
-- Node.js (v18 or higher)
-- npm or yarn
-- MongoDB
-
-### Installation
-
-1. Clone the repository
-```bash
-git clone https://github.com/AnishGane/smart-finance-tracker.git
-cd smart-finance-tracker
-```
-
-2. Install frontend dependencies
-```bash
-cd frontend
-npm install
-```
-
-3. Install backend dependencies
-```bash
-cd ../backend
-npm install
-```
-
-4. Environment Setup
-
-Frontend (.env in frontend directory):
-```env
-VITE_BACKEND_URL=yourbackendlocalhosturl
-```
-
-Backend (.env in backend directory):
-```env
-PORT=5000
-MONGODB_URI=yourmongodbstring
-JWT_SECRET=your_jwt_secret
-EMAIL_USER=your_email@gmail.com
-EMAIL_PASS=your_email_app_password
-EMAIL_TO=your_email@gmail.com
-```
-
-5. Start the development servers
-
-Backend:
-```bash
-cd backend
-npm run server
-```
-
-Frontend:
-```bash
-cd frontend
-npm run dev
-```
-
-The application will be available at your configured ports:
-- Frontend: Configured in Vite (default: 5173)
-- Backend API: Configured in .env (default: 5000)
-
-### Building for Production
-
-1. Build the frontend
-```bash
-cd frontend
-npm run build
-```
-
-2. Build the backend
-```bash
-cd backend
-npm run build
-```
+A comprehensive finance tracking application with a React frontend and Node.js backend.
 
 ## Project Structure
 
-### Frontend
 ```
-frontend/
-├── public/              # Static files
-├── src/                # Source code
-│   ├── components/     # Reusable components
-│   ├── pages/         # Page components
-│   ├── context/       # React context providers
-│   └── App.js         # Main application component
-├── package.json        # Project metadata and dependencies
-└── vite.config.js     # Vite configuration
+smart-finance-tracker/
+├── frontend/          # React frontend application
+├── backend/           # Node.js/Express backend server
+├── package.json       # Root package.json for workspace management
+└── render.yaml        # Render deployment configuration
 ```
 
-### Backend
+## Prerequisites
+
+- Node.js >= 18.0.0
+- npm >= 9.0.0
+
+## Setup Instructions
+
+1. Clone the repository:
+   ```bash
+   git clone <repository-url>
+   cd smart-finance-tracker
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm run install:all
+   ```
+
+3. Set up environment variables:
+   - Frontend: Create `.env` file in `frontend/` directory
+   - Backend: Create `.env` file in `backend/` directory
+
+4. Start development servers:
+   ```bash
+   npm run dev
+   ```
+
+## Deployment
+
+The project is configured for deployment on Render:
+
+1. Frontend (Static Site):
+   - Build Command: `cd frontend && npm install && npm run build`
+   - Publish Directory: `frontend/dist`
+
+2. Backend (Web Service):
+   - Build Command: `cd backend && npm install`
+   - Start Command: `cd backend && npm start`
+
+## Environment Variables
+
+### Frontend (.env)
 ```
-backend/
-├── config/            # Configuration files
-├── controllers/       # Request handlers
-├── middleware/        # Custom middleware
-├── models/           # Database models
-├── routes/           # API routes
-├── package.json      # Project metadata
-└── server.js         # Main application file
+VITE_API_URL=http://localhost:10000
 ```
 
-## API Endpoints
-
-### Authentication
-- `POST /api/user/register` - User registration
-- `POST /api/user/login` - User login
-- `POST /api/user/forgot-password` - Password recovery
-- `POST /api/user/reset-password` - Password reset
-
-### Transactions
-- `GET /api/transactions` - Get all transactions
-- `POST /api/transactions` - Create transaction
-- `PUT /api/transactions/:id` - Update transaction
-- `DELETE /api/transactions/:id` - Delete transaction
-
-### Charts
-- `GET /api/chart/data` - Get comprehensive chart data
-  - Requires authentication
-  - Returns:
-    - Line chart data (time-series income and expenses)
-    - Bar chart data (comparative income and expenses)
-    - Doughnut chart data (income vs expenses summary)
-    - Financial summary (total income, expenses, and net balance)
-  - Response includes:
-    - Success status
-    - Chart datasets with labels and styling
-    - Summary statistics
-    - No data message if no transactions exist
+### Backend (.env)
+```
+PORT=10000
+NODE_ENV=development
+```
 
 ## Available Scripts
 
-### Frontend
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm run preview` - Preview production build
-- `npm run lint` - Run ESLint
-- `npm run format` - Format code with Prettier
-
-### Backend
-- `npm run server` - Start development server
-- `npm run build` - Build for production
-
-## Author
-
-👤 **Anish Gane**
-
-- GitHub: [@AnishGane](https://github.com/AnishGane)
+- `npm run install:all` - Install all dependencies
+- `npm run install:frontend` - Install frontend dependencies
+- `npm run install:backend` - Install backend dependencies
+- `npm run build` - Build frontend for production
+- `npm run start:backend` - Start backend server
+- `npm run dev` - Start both frontend and backend in development mode
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+MIT License - see LICENSE file for details
 
-## Support
+## Author
 
-For support, email support@smartfinancetracker.com or open an issue in the repository.
+Anish Gane
