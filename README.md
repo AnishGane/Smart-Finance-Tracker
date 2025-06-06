@@ -66,7 +66,7 @@ VITE_BACKEND_URL=yourbackendlocalhosturl
 
 Backend (.env in backend directory):
 ```env
-PORT=5000
+PORT=yourport
 MONGODB_URI=yourmongodbstring
 JWT_SECRET=your_jwt_secret
 EMAIL_USER=your_email@gmail.com
