@@ -4,7 +4,7 @@ import dotenv from 'dotenv';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 import emailRoutes from './routes/emailRoutes.js';
-import { errorHandler } from './middleware/errorHandler.js';
+import errorHandler from './Middleware/errorHandler.js';
 import userRouter from "./routes/userRoute.js";
 import transactionRouter from "./routes/transactionRoute.js";
 import chartRouter from "./routes/chartRoutes.js";
