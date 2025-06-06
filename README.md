@@ -66,7 +66,7 @@ VITE_BACKEND_URL=yourbackendlocalhosturl
 
 Backend (.env in backend directory):
 ```env
-PORT=yourport
+PORT=5000
 MONGODB_URI=yourmongodbstring
 JWT_SECRET=your_jwt_secret
 EMAIL_USER=your_email@gmail.com
@@ -88,9 +88,9 @@ cd frontend
 npm run dev
 ```
 
-The application will be available at:
-- Frontend: `http://localhost:5173`
-- Backend API: `http://localhost:5000`
+The application will be available at your configured ports:
+- Frontend: Configured in Vite (default: 5173)
+- Backend API: Configured in .env (default: 5000)
 
 ### Building for Production
 
