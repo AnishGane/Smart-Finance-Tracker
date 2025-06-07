@@ -8,8 +8,7 @@ A comprehensive finance tracking application with a React frontend and Node.js b
 smart-finance-tracker/
 ├── frontend/          # React frontend application
 ├── backend/           # Node.js/Express backend server
-├── package.json       # Root package.json for workspace management
-└── render.yaml        # Render deployment configuration
+└── LICENSE           # MIT License file
 ```
 
 ## Prerequisites
@@ -55,23 +54,14 @@ The project is configured for deployment on Render:
 
 ### Frontend (.env)
 ```
-VITE_API_URL=http://localhost:10000
+VITE_BACKEND_URL=yourbackendurl
 ```
 
 ### Backend (.env)
 ```
-PORT=10000
+PORT=anyport
 NODE_ENV=development
 ```
-
-## Available Scripts
-
-- `npm run install:all` - Install all dependencies
-- `npm run install:frontend` - Install frontend dependencies
-- `npm run install:backend` - Install backend dependencies
-- `npm run build` - Build frontend for production
-- `npm run start:backend` - Start backend server
-- `npm run dev` - Start both frontend and backend in development mode
 
 ## License
 
