@@ -2,6 +2,10 @@
 
 A comprehensive finance tracking application with a React frontend and Node.js backend.
 
+## Live Demo
+
+Visit the deployed application at: [Smart Finance Tracker](https://smart-finance-tracker-1.onrender.com/)
+
 ## Project Structure
 
 ```
