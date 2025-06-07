@@ -32,12 +32,21 @@ export const FinanceProvider = ({ children }) => {
     });
   };
 
+  // Function to verify token validity
+  const verifyToken = async () => {
+    try {
+      const response = await api.get('/api/user/verify-token');
+      return response.data.success;
+    } catch (error) {
+      console.error('Token verification failed:', error);
+      return false;
+    }
+  };
+
   // Fetch chart data
   const fetchChartData = async () => {
     try {
       const response = await api.get('/api/chart/data');
-      console.log('Fetched chart data:', response.data); // Debug log
-      
       if (response.data && response.data.success) {
         setTransactions(response.data.data);
       } else {
@@ -56,20 +65,29 @@ export const FinanceProvider = ({ children }) => {
 
   // Initialize token and set axios headers on mount
   useEffect(() => {
-    const storedToken = localStorage.getItem('token');
-    if (storedToken) {
-      setToken(storedToken);
-      api.defaults.headers.common['Authorization'] = `Bearer ${storedToken}`;
-      fetchChartData(); // Use the new chart data function
-    }
-    setLoading(false);
+    const initializeAuth = async () => {
+      const storedToken = localStorage.getItem('token');
+      if (storedToken) {
+        const isValid = await verifyToken();
+        if (isValid) {
+          setToken(storedToken);
+          api.defaults.headers.common['Authorization'] = `Bearer ${storedToken}`;
+          fetchChartData();
+        } else {
+          handleTokenExpiration();
+        }
+      }
+      setLoading(false);
+    };
+
+    initializeAuth();
   }, []);
 
   // Update axios headers when token changes
   useEffect(() => {
     if (token) {
       api.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-      fetchChartData(); // Use the new chart data function
+      fetchChartData();
     } else {
       delete api.defaults.headers.common['Authorization'];
       setTransactions([]);
@@ -80,9 +98,12 @@ export const FinanceProvider = ({ children }) => {
   useEffect(() => {
     const interceptor = api.interceptors.response.use(
       (response) => response,
-      (error) => {
+      async (error) => {
         if (error.response?.status === 401) {
-          handleTokenExpiration();
+          const isValid = await verifyToken();
+          if (!isValid) {
+            handleTokenExpiration();
+          }
         }
         return Promise.reject(error);
       }
