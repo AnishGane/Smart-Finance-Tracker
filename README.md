@@ -97,7 +97,7 @@ smart-finance-tracker/
    ```bash
    # Start backend server
    cd backend
-   npm run dev
+   npm run server
 
    # Start frontend server (in a new terminal)
    cd frontend
